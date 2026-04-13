@@ -43,7 +43,7 @@ function TraineeList() {
           </div>
         ) : (
           <div className="bg-white rounded-2xl border shadow-sm overflow-hidden">
-            <div className="grid grid-cols-3 bg-slate-100 font-semibold text-slate-700 p-4">
+            <div className="grid grid-cols-3 bg-slate-100 font-semibold text-slate-700 p-4 gap-4">
               <p>Name</p>
               <p>Email</p>
               <p>Role</p>
@@ -52,11 +52,18 @@ function TraineeList() {
             {trainees.map((trainee) => (
               <div
                 key={trainee._id}
-                className="grid grid-cols-3 p-4 border-t text-slate-700"
+                className="grid grid-cols-3 p-4 border-t text-slate-700 gap-4 items-center"
               >
-                <p>{trainee.name}</p>
-                <p>{trainee.email}</p>
-                <p className="capitalize">{trainee.role}</p>
+                <p className="break-words">{trainee.name}</p>
+
+                <p
+                  className="max-w-[320px] truncate"
+                  title={trainee.email}
+                >
+                  {trainee.email}
+                </p>
+
+                <p className="capitalize break-words">{trainee.role}</p>
               </div>
             ))}
           </div>
